@@ -56,6 +56,28 @@ function splitIt(str, funct) {
 // Binary one supposed to be here, we dont know binary lolol
 
 
+// input: 5
+// output: 101
+
+// 25 => 11001
+// 25/2 = 12 
+// 25%2 = 1
+
+// base case: decimal reaches 0 return
+// mod to get the 0 or 1 representation
+// divide to make the number smaller towards the base case
+// send the smaller value through the recursive call
+
+function binaryRepresentation(num) {
+    if (num <= 0) {
+        return '';
+    }
+    const binary = Math.floor(num%2);
+    return binaryRepresentation(Math.floor(num / 2)) + binary;
+}
+
+console.log(binaryRepresentation(25))
+
 
 function factorialFunct(num) {
     if (num === 1) {
@@ -102,4 +124,4 @@ function traverse(animalHierarchy, parent) {
                    .forEach(item => node[item.id] = traverse(animalHierarchy, item.id));
     return node;  
 }
-console.log(traverse(animalHierarchy, null));
+// console.log(traverse(animalHierarchy, null));
